@@ -57,7 +57,7 @@ const Navbar = ({ activeSection, scrollToSection }) => {
             {/* Social Links - Desktop */}
             <div className="hidden md:flex items-center space-x-4">
               <motion.a
-                href="https://github.com/ayanokojix-1"
+                href="https://github.com/A-Y-A-N-O-K-O-J-I"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, color: '#38bdf8' }}
@@ -151,7 +151,7 @@ const Navbar = ({ activeSection, scrollToSection }) => {
                   className="flex items-center space-x-6 mt-8 pt-8 border-t border-gray-700"
                 >
                   <motion.a
-                    href="https://github.com/ayanokojix-1"
+                    href="https://github.com/A-Y-A-N-O-K-O-J-I"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.2 }}

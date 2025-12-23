@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Bot, Brain, Server, Globe } from 'lucide-react';
+import { ExternalLink, Github, Bot, Brain, Server, Globe, Clapperboard } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -9,7 +9,7 @@ const Projects = () => {
       description: '70+ command WhatsApp bot with media conversion, data purchase, auto-updates, and status management',
       longDescription: 'A multifunctional WhatsApp bot built with Baileys that can download videos, convert stickers to photos and vice versa, buy data, auto-update, and manage status downloads. Built when I had only basic JS knowledge - true project-based learning!',
       technologies: ['JavaScript', 'Node.js', 'Baileys', 'Axios', 'SQL'],
-      github: 'https://github.com/ayanokojix-1/sophia-md',
+      github: 'https://github.com/A-Y-A-N-O-K-O-J-I/sophia-md',
       icon: Bot,
       gradient: 'from-green-400 to-emerald-500'
     },
@@ -23,12 +23,12 @@ const Projects = () => {
       gradient: 'from-purple-400 to-pink-500'
     },
     {
-      title: 'Koji Hosting Bot',
-      description: 'Telegram bot for deploying Node.js projects with file storage and process management',
-      longDescription: 'Revolutionary Telegram bot that allows users to store files, deploy Node.js projects, and manage processes directly through Telegram. Supports npm commands, PM2 process management, and real-time project monitoring.',
-      technologies: ['JavaScript', 'Telegraf', 'SQLite3', 'Node.js', 'PM2'],
-      demo: 'https://t.me/@koji_hosting_bot',
-      icon: Server,
+      title: 'K-Anime',
+      description: 'A bulk anime downloader that let\'s you download multiple anime episodes at once',
+      longDescription: 'The only anime platform that lets you bulk download multiple anime episodes into a single ZIP file. Fast, minimalistic, and easy to use with Japanese dub and subtitle support.',
+      technologies: ['Python', 'BeautifulSoup', 'SQLite', 'Httpx', 'FastApi'],
+      demo: 'https://k-anime.zone.id',
+      icon: Clapperboard,
       gradient: 'from-blue-400 to-cyan-500'
     },
     {

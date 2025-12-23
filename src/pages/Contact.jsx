@@ -21,8 +21,8 @@ const Contact = () => {
     {
       icon: Github,
       title: 'GitHub',
-      value: '@ayanokojix-1',
-      href: 'https://github.com/ayanokojix-1',
+      value: '@A-Y-A-N-O-K-O-J-I',
+      href: 'https://github.com/A-Y-A-N-O-K-O-J-I',
       color: 'from-gray-400 to-gray-600'
     },
     {
@@ -35,9 +35,9 @@ const Contact = () => {
   ];
 
   const quickLinks = [
-    { name: 'Sophia-MD Bot', url: 'https://github.com/ayanokojix-1/sophia-md' },
+    { name: 'Sophia-MD Bot', url: 'https://github.com/A-Y-A-N-O-K-O-J-I/sophia-md' },
     { name: 'Sophia Assistant', url: 'https://sophia-assistant.zone.id' },
-    { name: 'Koji Hosting Bot', url: 'https://t.me/@koji_hosting_bot' },
+    { name: 'K-Anime', url: 'https://k-anime.zone.id' },
     { name: 'OyoCam Platform', url: 'https://oyocam.org' }
   ];
 
@@ -110,22 +110,6 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Location */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="flex items-center p-4 bg-gradient-to-r from-sky-500/10 to-blue-500/10 rounded-xl border border-sky-400/20"
-            >
-              <div className="p-3 rounded-lg bg-sky-400/20 mr-4">
-                <MapPin className="w-5 h-5 text-sky-400" />
-              </div>
-              <div>
-                <div className="font-semibold text-white">Location</div>
-                <div className="text-sky-400">Ibadan, Nigeria</div>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Quick Access & CTA */}
@@ -228,7 +212,7 @@ const Contact = () => {
           </p>
           <div className="flex justify-center space-x-6">
             <motion.a
-              href="https://github.com/ayanokojix-1"
+              href="https://github.com/A-Y-A-N-O-K-O-J-I"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, color: '#38bdf8' }}

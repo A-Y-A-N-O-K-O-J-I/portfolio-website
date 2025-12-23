@@ -30,16 +30,6 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        {/* Location Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center space-x-2 bg-sky-400/10 text-sky-400 px-4 py-2 rounded-full text-sm mb-6 border border-sky-400/20"
-        >
-          <MapPin size={14} />
-          <span>Based in Ibadan, Nigeria</span>
-        </motion.div>
 
         {/* Main Heading */}
         <motion.h1
@@ -137,25 +127,6 @@ const Hero = () => {
           </motion.button>
         </motion.div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-6 h-10 border-2 border-sky-400 rounded-full flex justify-center"
-          >
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-1 h-3 bg-sky-400 rounded-full mt-2"
-            />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );
