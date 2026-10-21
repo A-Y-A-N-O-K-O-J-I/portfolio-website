@@ -1,177 +1,106 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Bot, Brain, Server, Globe, Clapperboard } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
+import SectionHeading from '../components/SectionHeading';
+import { projects, archive, accents } from '../data/site';
 
-const Projects = () => {
-  const projects = [
-    {
-      title: 'Sophia-MD',
-      description: '70+ command WhatsApp bot with media conversion, data purchase, auto-updates, and status management',
-      longDescription: 'A multifunctional WhatsApp bot built with Baileys that can download videos, convert stickers to photos and vice versa, buy data, auto-update, and manage status downloads. Built when I had only basic JS knowledge - true project-based learning!',
-      technologies: ['JavaScript', 'Node.js', 'Baileys', 'Axios', 'SQL'],
-      github: 'https://github.com/A-Y-A-N-O-K-O-J-I/sophia-md',
-      icon: Bot,
-      gradient: 'from-green-400 to-emerald-500'
-    },
-    {
-      title: 'Sophia Assistant',
-      description: 'AI-powered WhatsApp bot with authentication, web interface, and tiered subscription plans',
-      longDescription: 'An advanced AI version of Sophia-MD with full authentication system, modern web interface, and three subscription tiers (Lite, Basic, Premium). Features web scraping, AI conversations, and seamless WhatsApp integration.',
-      technologies: ['JavaScript', 'Python', 'React', 'Tailwind', 'Framer Motion', 'Flask', 'Express', 'Gemini API'],
-      demo: 'https://sophia-assistant.zone.id',
-      icon: Brain,
-      gradient: 'from-purple-400 to-pink-500'
-    },
-    {
-      title: 'K-Anime',
-      description: 'A bulk anime downloader that let\'s you download multiple anime episodes at once',
-      longDescription: 'The only anime platform that lets you bulk download multiple anime episodes into a single ZIP file. Fast, minimalistic, and easy to use with Japanese dub and subtitle support.',
-      technologies: ['Python', 'BeautifulSoup', 'SQLite', 'Httpx', 'FastApi'],
-      demo: 'https://k-anime.zone.id',
-      icon: Clapperboard,
-      gradient: 'from-blue-400 to-cyan-500'
-    },
-    {
-      title: 'OyoCam Education Platform',
-      description: 'Full-stack education platform with video calling, PDF library, and student-teacher analytics',
-      longDescription: 'Comprehensive education platform for Oduduwa College with WebRTC video calling, integrated PDF library, detailed teacher and student statistics, and complete learning management system.',
-      technologies: ['React', 'Node.js', 'WebRTC', 'SQL', 'Express'],
-      demo: 'https://oyocam.org',
-      icon: Globe,
-      gradient: 'from-orange-400 to-red-500'
-    }
-  ];
+const Projects = () => (
+  <section id="projects" className="py-24">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeading eyebrow="Work" title="Things I've built">
+        Each one started as a repetitive problem someone was tired of.
+      </SectionHeading>
 
-  return (
-    <section id="projects" className="py-20 bg-gray-800/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
-              Featured Projects
-            </span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            From WhatsApp bots to AI assistants - building solutions that matter
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
+      <div className="grid md:grid-cols-2 gap-6">
+        {projects.map((p, i) => {
+          const a = accents[p.accent] ?? accents.violet;
+          return (
+            <motion.article
+              key={p.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: (i % 2) * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -5 }}
-              className="group bg-gray-800/30 rounded-xl border border-gray-700/50 hover:border-sky-400/30 transition-all duration-300 overflow-hidden"
+              whileHover={{ y: -6 }}
+              className={`group flex flex-col rounded-2xl bg-white/[0.03] border border-white/10 overflow-hidden transition-[border-color,box-shadow] duration-300 hover:shadow-2xl ${a.ring} ${a.glow}`}
             >
-              <div className="p-8">
-                {/* Project Header */}
-                <div className="flex items-center mb-6">
-                  <div className={`p-3 rounded-xl bg-gradient-to-r ${project.gradient} mr-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <project.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-sky-400 transition-colors">
-                    {project.title}
-                  </h3>
-                </div>
-
-                {/* Project Description */}
-                <p className="text-gray-300 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                  {project.longDescription}
-                </p>
-
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-gray-700/50 text-gray-300 rounded-full text-xs font-medium border border-gray-600/50"
-                    >
-                      {tech}
+              <div className={`h-2 bg-gradient-to-r ${a.grad}`} />
+              <div className="p-7 flex flex-col flex-1">
+                <div className="flex items-center justify-between gap-3 mb-4 min-h-7">
+                  <span className={`text-xs font-semibold uppercase tracking-wider ${a.text}`}>{p.kind}</span>
+                  {p.status === 'live' && (
+                    <span className="inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full bg-emerald-400/10 border border-emerald-400/20 text-emerald-300">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Live
                     </span>
-                  ))}
+                  )}
+                  {p.status === 'wip' && (
+                    <span className="text-xs px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-300">
+                      In progress
+                    </span>
+                  )}
                 </div>
+                <h3 className="text-2xl font-bold text-white mb-3">{p.title}</h3>
+                <p className="text-zinc-400 leading-relaxed mb-5">{p.description}</p>
 
-                {/* Project Links */}
-                <div className="flex space-x-4">
-                  {project.demo && (
-                    <motion.a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`flex items-center space-x-2 px-4 py-2 bg-gradient-to-r ${project.gradient} text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300`}
-                    >
-                      <ExternalLink size={16} />
-                      <span>Live Demo</span>
-                    </motion.a>
-                  )}
-                  {project.github && (
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center space-x-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition-all duration-300"
-                    >
-                      <Github size={16} />
-                      <span>GitHub</span>
-                    </motion.a>
-                  )}
+                {p.tech.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {p.tech.map((t) => (
+                      <span key={t} className="px-2.5 py-1 rounded-md text-xs bg-white/5 text-zinc-300">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <div className="mt-auto flex flex-wrap gap-3">
+                  {p.links.map((l) => {
+                    const isCode = l.label.toLowerCase() === 'code';
+                    const Icon = isCode ? Github : ExternalLink;
+                    return (
+                      <a
+                        key={l.url}
+                        href={l.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={
+                          isCode
+                            ? 'inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white bg-white/10 hover:bg-white/15 transition-colors'
+                            : `inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white bg-gradient-to-r ${a.grad} hover:brightness-110 transition`
+                        }
+                      >
+                        <Icon size={15} /> {l.label}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
+            </motion.article>
+          );
+        })}
+      </div>
 
-              {/* Hover Effect Overlay */}
-              <div className="h-2 bg-gradient-to-r from-gray-700 to-gray-600 group-hover:from-sky-400 group-hover:to-blue-500 transition-all duration-300" />
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Additional Projects */}
+      {archive.length > 0 && (
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="mt-20"
         >
-          <h3 className="text-2xl font-bold text-white mb-8">Other Notable Projects</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 bg-gray-800/30 rounded-xl border border-gray-700/50">
-              <h4 className="text-lg font-semibold text-sky-400 mb-2">JS Obfuscation Tool</h4>
-              <p className="text-gray-400 text-sm">Advanced JavaScript code obfuscation tool with multiple protection layers</p>
-            </div>
-            <div className="p-6 bg-gray-800/30 rounded-xl border border-gray-700/50">
-              <h4 className="text-lg font-semibold text-sky-400 mb-2">NEPA Light Predictor</h4>
-              <p className="text-gray-400 text-sm">ML model to predict electricity availability patterns in Nigeria (In Development)</p>
-            </div>
-            <div className="p-6 bg-gray-800/30 rounded-xl border border-gray-700/50">
-              <h4 className="text-lg font-semibold text-sky-400 mb-2">KingFix</h4>
-              <p className="text-gray-400 text-sm">Business website with modern design and full functionality - <a href="https://kingfix.name.ng" className="text-sky-400 hover:underline">kingfix.name.ng</a></p>
-            </div>
-            <div className="p-6 bg-gray-800/30 rounded-xl border border-gray-700/50">
-              <h4 className="text-lg font-semibold text-sky-400 mb-2">BigaStores</h4>
-              <p className="text-gray-400 text-sm">E-commerce platform with inventory management - <a href="https://bigastores.name.ng" className="text-sky-400 hover:underline">bigastores.name.ng</a></p>
-            </div>
+          <h3 className="text-xl font-bold text-white">Archive</h3>
+          <p className="text-sm text-zinc-500 mt-1 mb-6">Earlier experiments and retired projects, kept for the record.</p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {archive.map((p) => (
+              <div key={p.title} className="p-5 rounded-xl border border-dashed border-white/10 bg-white/[0.015]">
+                <h4 className="font-semibold text-zinc-300">{p.title}</h4>
+                <p className="text-sm text-zinc-500 mt-1">{p.description}</p>
+              </div>
+            ))}
           </div>
         </motion.div>
-      </div>
-    </section>
-  );
-};
+      )}
+    </div>
+  </section>
+);
 
 export default Projects;

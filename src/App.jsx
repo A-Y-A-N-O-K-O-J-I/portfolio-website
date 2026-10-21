@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './pages/Home';
 import About from './pages/About';
@@ -32,14 +33,18 @@ const App = () => {
   };
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen font-manjiri">
-      <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-    </div>
+    <MotionConfig reducedMotion="user">
+      <div className="bg-zinc-950 text-white min-h-screen font-display antialiased">
+        <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
+      </div>
+    </MotionConfig>
   );
 };
 
